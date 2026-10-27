@@ -69,7 +69,7 @@ window.AV_HUB = {
         { name: "Cisco Deal Registration", url: "https://www.cisco.com/c/en/us/partners/tools/deal-registration.html" , icon: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" },
         { name: "HP/Poly Deal Registration", url: "https://partner.hp.com" , icon: "https://upload.wikimedia.org/wikipedia/commons/0/05/HP_logo_2025.svg" },
         { name: "Commbox Deal Registration", url: "https://www.commbox.io/deal-registration/", iconDomain: "www.commbox.com.au" },
-        { name: "Logitech Deal Registration", url: "https://hub.sync.logitech.com/partnerportal/post/deal-registration-yD5TCuZRYGoVq2Y", color: "#00f5d4" },
+        { name: "Logitech Deal Registration", url: "https://partners.logitech.com/English_AUS/", color: "#00f5d4" },
         { name: "Neat Deal Registration", url: "https://neat.no/partners/", color: "#5b2a9e" },
         { name: "Yealink Deal Registration", url: "https://www.yealink.com/vcs_opportunity_registration_pogram" , icon: "https://upload.wikimedia.org/wikipedia/commons/9/98/Yealink_logo.png" }
 
@@ -83,13 +83,13 @@ window.AV_HUB = {
             links: [
         { name: "Cisco Video Room Calculator", url: "https://collabexperience.com" , icon: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" },
         { name: "Cisco Webex Control Hub", url: "https://admin.webex.com" , iconDomain: "www.webex.com" },
-        { name: "Cisco Workspace Designer", url: "https://www.webex.com/workspace-designer" , icon: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" },
+        { name: "Cisco Workspace Designer", url: "https://designer.webex.com/" , icon: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" },
         { name: "Crestron Collab Room Builder", url: "https://www.crestron.com/Products/Workspace-Solutions/Intelligent-Video/Tools/Room-Designer-Software" , icon: "https://upload.wikimedia.org/wikipedia/en/7/72/Crestron_Electronics_logo.png" },
-        { name: "Logitech Room Designer", url: "https://www.logitech.com/en-au/video-collaboration/room-designer.html", color: "#00f5d4" },
+        { name: "Logitech Room Designer", url: "https://configurator.logitech.com/", color: "#00f5d4" },
         { name: "Logitech Sync", url: "https://sync.logitech.com" , iconDomain: "hub.sync.logitech.com" },
         { name: "Projector Throw Calculator", url: "https://www.projectorcentral.com/projection-calculator-pro.cfm", color: "#120a2a", icon: "icons/projector-central.png", fit: "full" },
         { name: "QSC Reflect", url: "https://reflect.qsc.com" , iconDomain: "www.qsc.com" },
-        { name: "Sennheiser Room Planner", url: "https://www.sennheiser.com/en-au/room-planner" , icon: "https://upload.wikimedia.org/wikipedia/commons/1/11/Sennheiser_logo_%282019%29.svg" }
+        { name: "Sennheiser Room Planner", url: "https://roomplanner.sennheiser.com/" , icon: "https://upload.wikimedia.org/wikipedia/commons/1/11/Sennheiser_logo_%282019%29.svg" }
 
 
       ]

@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AV Hub</title>
+<meta name="description" content="Quick links to AV supplier sites, deal registration, room designers and training portals.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6bff'/%3E%3Ctext x='32' y='42' font-family='Inter,Segoe UI,Arial' font-size='26' font-weight='800' fill='white' text-anchor='middle'%3EAV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  /* apply saved theme before paint to avoid a flash */
+  (function(){ try { var t = localStorage.getItem('avhub-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch(e){} })();
+</script>
+<style>
+  /* ---------- theme tokens ---------- */
+  :root{
+    --bg:#f2f4f9;
+    --panel:#ffffff;
+    --panel-2:#f6f8fc;
+    --line:#e2e7f0;
+    --ink:#121a2c;
+    --ink-2:#4a5570;
+    --ink-3:#7a849b;
+    --tab-bg:#ffffff;
+    --tile:#ffffff;
+    --tile-line:#e3e8f1;
+    --hover:#eef3ff;
+    --brand:#2f6bff;
+    --brand-ink:#ffffff;
+    --hero-1:#0d1b46;
+    --hero-2:#1c3fa8;
+    --hero-3:#2f6bff;
+    --blue:#3b7bff; --orange:#f59e0b; --green:#22c55e; --red:#ef4444; --purple:#a855f7; --teal:#14b8a6;
+    --shadow:0 1px 2px rgba(16,24,40,.05),0 4px 16px rgba(16,24,40,.06);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0a0e19; --panel:#131a2b; --panel-2:#0f1524; --line:#232c42;
+      --ink:#eef2fb; --ink-2:#a7b1c8; --ink-3:#6f7a94;
+      --tab-bg:#111727; --tile:#ffffff; --tile-line:transparent; --hover:#1a2338;
+      --hero-1:#0b1638; --hero-2:#14307f; --hero-3:#2a5cf0;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0a0e19; --panel:#131a2b; --panel-2:#0f1524; --line:#232c42;
+    --ink:#eef2fb; --ink-2:#a7b1c8; --ink-3:#6f7a94;
+    --tab-bg:#111727; --tile:#ffffff; --tile-line:transparent; --hover:#1a2338;
+    --hero-1:#0b1638; --hero-2:#14307f; --hero-3:#2a5cf0;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;transition:background .2s,color .2s}
+  .page{max-width:1120px;margin:0 auto;padding:16px 16px 32px}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;border-radius:16px;padding:22px 24px 26px;color:#fff;
+        background:linear-gradient(120deg,var(--hero-1) 0%,var(--hero-2) 55%,var(--hero-3) 100%);box-shadow:var(--shadow)}
+  .hero .waves{position:absolute;right:-40px;top:-10px;width:60%;height:120%;opacity:.35;pointer-events:none}
+  .pills{display:flex;gap:8px;margin-bottom:14px;position:relative}
+  .pill{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:600;
+        background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(4px)}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:#7dd3fc;box-shadow:0 0 0 3px rgba(125,211,252,.25)}
+  .hero h1{position:relative;margin:0;font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-.8px;line-height:1.05}
+  .hero p{position:relative;margin:8px 0 18px;color:rgba(255,255,255,.82);font-size:15px;max-width:520px}
+  .theme-btn{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.25);
+        background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;cursor:pointer;transition:background .15s}
+  .theme-btn:hover{background:rgba(255,255,255,.22)}
+  .theme-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .theme-btn svg{width:20px;height:20px}
+  .theme-btn .moon{display:none}
+  :root[data-theme="dark"] .theme-btn .sun{display:none}
+  :root[data-theme="dark"] .theme-btn .moon{display:block}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .theme-btn .sun{display:none}
+    :root:not([data-theme="light"]) .theme-btn .moon{display:block}
+  }
+  .search{position:relative;max-width:460px}
+  .search input{width:100%;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);
+        color:#fff;font:inherit;font-size:15px;padding:0 14px 0 42px;outline:none;transition:background .15s,border-color .15s}
+  .search input::placeholder{color:rgba(255,255,255,.65)}
+  .search input:focus{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6)}
+  .search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:rgba(255,255,255,.75);pointer-events:none}
+  .search kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:600 11px Inter,sans-serif;padding:3px 7px;border-radius:6px;
+        background:rgba(255,255,255,.15);color:rgba(255,255,255,.8)}
+
+  /* ---------- tab bar ---------- */
+  .tabs{position:sticky;top:0;z-index:10;margin:14px 0 16px;padding:8px 0;background:var(--bg)}
+  .tabs-inner{display:flex;gap:4px;padding:4px;border-radius:12px;background:var(--tab-bg);border:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+  .tabs-inner::-webkit-scrollbar{display:none}
+  .tabs a{flex:1 0 auto;text-align:center;padding:9px 14px;border-radius:9px;font-size:13px;font-weight:600;color:var(--ink-2);text-decoration:none;white-space:nowrap;transition:background .15s,color .15s}
+  .tabs a:hover{color:var(--ink);background:var(--hover)}
+  .tabs a.active{background:var(--accent,var(--brand));color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.25);box-shadow:0 2px 10px color-mix(in srgb,var(--accent,var(--brand)) 40%,transparent)}
+  .tabs a:focus-visible{outline:2px solid var(--brand);outline-offset:1px}
+
+  /* ---------- section cards ---------- */
+  .card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:16px;box-shadow:var(--shadow);overflow:hidden}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
+  .card-head{display:flex;align-items:center;gap:12px;padding:18px 20px 6px 24px}
+  .num{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;color:#fff;background:var(--accent);flex:none}
+  .card h2{margin:0;font-size:18px;font-weight:700;letter-spacing:-.2px}
+  .count{margin-left:auto;font-size:12px;font-weight:600;color:var(--ink-3);white-space:nowrap}
+  .toggle{all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;border-radius:8px}
+  .toggle:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+  .chev{width:18px;height:18px;color:var(--ink-3);transition:transform .2s}
+  .collapsed .chev{transform:rotate(-90deg)}
+  .collapsed .links{display:none}
+  .collapsed .card-head{padding-bottom:18px}
+
+  .links{list-style:none;margin:0;padding:10px 16px 18px 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:4px 12px}
+  .links a{display:flex;align-items:center;gap:14px;padding:8px;border-radius:10px;color:inherit;text-decoration:none;transition:background .15s}
+  .links a:hover{background:var(--hover)}
+  .links a:focus-visible{outline:2px solid var(--brand);outline-offset:0}
+  .links .name{font-size:15px;font-weight:500;line-height:1.3}
+  .links .host{display:block;font-size:12px;color:var(--ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+  .chip{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.2px;padding:1px 7px;margin-right:6px;border-radius:999px;color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent);vertical-align:1px}
+  .links .ext{width:15px;height:15px;margin-left:auto;flex:none;color:var(--ink-3);opacity:0;transition:opacity .15s}
+  .links a:hover .ext,.links a:focus-visible .ext{opacity:1}
+
+  .tile{width:52px;height:52px;flex:none;border-radius:11px;background:var(--tile);border:1px solid var(--tile-line);display:grid;place-items:center;overflow:hidden}
+  .tile img{width:34px;height:34px;object-fit:contain}
+  .tile.full img{width:100%;height:100%;object-fit:cover}
+  .tile.logo img{width:84%;height:70%;object-fit:contain}
+  .tile .mono{font-weight:800;font-size:17px;letter-spacing:.3px}
+
+  .empty{display:none;padding:48px 16px;text-align:center;color:var(--ink-3);background:var(--panel);border:1px dashed var(--line);border-radius:14px}
+  .hidden{display:none!important}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* ---------- footer ---------- */
+  .footbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px;padding:12px 16px;background:var(--panel);border:1px solid var(--line);border-radius:14px;font-size:12px;color:var(--ink-3)}
+  .footbar b{color:var(--ink-2);font-weight:600}
+  .footbar .spacer{flex:1}
+  .credit{text-align:center;font-size:12px;color:var(--ink-3);margin-top:18px}
+
+  @media (max-width:640px){
+    .hero{padding:18px 18px 20px}
+    .hero .waves{width:100%;opacity:.25}
+    .links{grid-template-columns:1fr;padding:8px 10px 14px 14px}
+    .search kbd{display:none}
+    .tabs a{flex:0 0 auto}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <svg class="waves" viewBox="0 0 600 300" fill="none" stroke="#9cc0ff" stroke-width="1.2" aria-hidden="true">
+      <path d="M0 150 C 75 60, 150 60, 225 150 S 375 240, 450 150 S 560 70, 600 110"/>
+      <path d="M0 165 C 75 85, 150 85, 225 165 S 375 235, 450 165 S 560 95, 600 125" opacity=".8"/>
+      <path d="M0 180 C 75 110, 150 110, 225 180 S 375 230, 450 180 S 560 120, 600 140" opacity=".6"/>
+      <path d="M0 135 C 75 35, 150 35, 225 135 S 375 245, 450 135 S 560 45, 600 95" opacity=".6"/>
+      <path d="M0 120 C 75 10, 150 10, 225 120 S 375 250, 450 120 S 560 20, 600 80" opacity=".4"/>
+      <path d="M0 195 C 75 135, 150 135, 225 195 S 375 225, 450 195 S 560 145, 600 155" opacity=".4"/>
+    </svg>
+    <div class="pills">
+      <span class="pill"><span class="dot"></span><span id="tag">Audio Visual</span></span>
+      <span class="pill" id="ver">v2.0</span>
+    </div>
+    <h1 id="site-title">AV Hub</h1>
+    <p id="subtitle"></p>
+    <label class="search">
+      <span class="sr">Search links</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg>
+      <input id="q" type="search" placeholder="Search suppliers, portals, tools…" autocomplete="off">
+      <kbd>/</kbd>
+    </label>
+    <button class="theme-btn" id="theme" type="button" aria-label="Switch light or dark mode" title="Light / dark mode">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11z"/></svg>
+    </button>
+  </header>
+
+  <nav class="tabs" aria-label="Sections"><div class="tabs-inner" id="nav"></div></nav>
+
+  <main id="main"></main>
+  <p class="empty" id="empty">No links match that search.</p>
+
+  <div class="footbar">
+    <span id="total"></span>
+    <span class="spacer"></span>
+    <span>Links open in a new tab</span>
+  </div>
+  <p class="credit" id="credit"></p>
+</div>
+
+<script>document.write('<script src="links.js?t=' + Date.now() + '"><\/script>');</script>
+<script>
+(function(){
+  var data = window.AV_HUB;
+  var main = document.getElementById('main');
+  var nav = document.getElementById('nav');
+  var root = document.documentElement;
+
+  /* ---------- header + footer text ---------- */
+  document.title = data.title;
+  document.getElementById('site-title').textContent = data.title;
+  document.getElementById('subtitle').textContent = data.subtitle || '';
+  document.getElementById('tag').textContent = data.tag || 'Audio Visual';
+  document.getElementById('ver').textContent = 'v' + (data.version || '1.0');
+  document.getElementById('credit').textContent =
+    'v' + (data.version || '1.0') + (data.updated ? ' · ' + data.updated : '') + (data.author ? ' · Created by ' + data.author : '');
+
+  /* ---------- theme toggle ---------- */
+  function currentTheme(){
+    var t = root.getAttribute('data-theme');
+    if (t) return t;
+    return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.getElementById('theme').addEventListener('click', function(){
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('avhub-theme', next); } catch(e){}
+  });
+
+  /* ---------- tiles ---------- */
+  var extIcon = '<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>';
+  var chev = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+
+  function host(u){ try { return new URL(u).hostname; } catch(e){ return ''; } }
+  function initials(n){
+    var w = n.replace(/[^A-Za-z0-9 ]/g,' ').trim().split(/\s+/);
+    return (w.length > 1 ? w[0][0] + w[1][0] : w[0].slice(0,2)).toUpperCase();
+  }
+  function textOn(hex){
+    var c = hex.replace('#',''); if (c.length===3) c = c.replace(/./g,'$&$&');
+    var r=parseInt(c.substr(0,2),16), g=parseInt(c.substr(2,2),16), b=parseInt(c.substr(4,2),16);
+    return (0.299*r + 0.587*g + 0.114*b) > 160 ? '#111' : '#fff';
+  }
+  function monogram(tile, link){
+    var bg = link.color || '#2f6bff';
+    tile.style.background = bg;
+    tile.style.borderColor = 'transparent';
+    tile.innerHTML = '<span class="mono" style="color:'+textOn(bg)+'">'+initials(link.name)+'</span>';
+  }
+  function makeTile(link){
+    var tile = document.createElement('span');
+    tile.className = 'tile';
+    monogram(tile, link);               // initials first, always visible
+    var h = link.iconDomain || host(link.url);
+    if (!h || link.icon === false) return tile;
+    var origin = 'https://' + h;
+    // Sources tried: your own logo (if set) → site's high-res app icon → standard favicon
+    var sources = [];
+    if (link.icon) sources.push(link.icon);
+    sources.push('https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=256&url=' + encodeURIComponent(origin));
+    sources.push('https://www.google.com/s2/favicons?sz=128&domain=' + encodeURIComponent(h));
+    var best = 0;
+    sources.forEach(function(src, i){
+      var img = new Image();
+      img.alt = '';
+      img.referrerPolicy = 'no-referrer';
+      img.onload = function(){
+        var w = img.naturalWidth || 300;                   // SVGs can report 0
+        var custom = !!(link.icon && i === 0);
+        var score = custom ? 9999 : w;                     // a custom logo always wins
+        if ((!custom && w <= 16) || score <= best) return;
+        best = score;
+        tile.style.background = '';
+        tile.style.borderColor = '';
+        tile.innerHTML = '';
+        tile.classList.toggle('logo', custom && link.fit !== 'full');
+        tile.classList.toggle('full', custom ? link.fit === 'full' : w >= 96);
+        tile.appendChild(img);
+      };
+      img.src = src;
+    });
+    return tile;
+  }
+
+  /* ---------- build sections ---------- */
+  var total = 0;
+  var palette = ['blue','orange','green','red','purple','teal'];
+  data.sections.forEach(function(s, idx){
+    s.accent = s.accent || palette[idx % palette.length];
+    var sec = document.createElement('section');
+    sec.id = s.id;
+    sec.className = 'card';
+    sec.style.setProperty('--accent', 'var(--' + (s.accent || 'blue') + ')');
+    var headId = s.id + '-h';
+    var title = '<span class="num">' + (idx + 1) + '</span><h2 id="' + headId + '">' + s.title + '</h2>';
+    sec.innerHTML = '<div class="card-head">' +
+      (s.collapsible ? '<button class="toggle" aria-expanded="true" aria-controls="'+s.id+'-list">' + title + chev + '</button>' : title) +
+      '<span class="count"></span></div><ul class="links" id="'+s.id+'-list" aria-labelledby="'+headId+'"></ul>';
+    var ul = sec.querySelector('ul');
+    s.links.slice().sort(function(a, b){ return a.name.localeCompare(b.name, undefined, {sensitivity:'base', numeric:true}); }).forEach(function(link){
+      total++;
+      var h = host(link.url).replace(/^www\./,'');
+      var li = document.createElement('li');
+      li.dataset.search = (link.name + ' ' + h + ' ' + s.title + ' ' + (link.tag || '')).toLowerCase();
+      var a = document.createElement('a');
+      a.href = link.url; a.target = '_blank'; a.rel = 'noopener';
+      a.appendChild(makeTile(link));
+      var txt = document.createElement('span');
+      var n = document.createElement('span'); n.className = 'name'; n.textContent = link.name;
+      var hs = document.createElement('span'); hs.className = 'host'; hs.textContent = h;
+      if (link.tag){ var tg = document.createElement('span'); tg.className = 'chip'; tg.textContent = link.tag; hs.textContent = ''; hs.appendChild(tg); hs.appendChild(document.createTextNode(h)); }
+      txt.appendChild(n); txt.appendChild(hs);
+      a.appendChild(txt);
+      a.insertAdjacentHTML('beforeend', extIcon);
+      li.appendChild(a); ul.appendChild(li);
+    });
+    if (s.collapsible){
+      var btn = sec.querySelector('.toggle');
+      var key = 'avhub-collapsed-' + s.id;
+      var setState = function(c){ sec.classList.toggle('collapsed', c); btn.setAttribute('aria-expanded', String(!c)); };
+      try { if (localStorage.getItem(key) === '1') setState(true); } catch(e){}
+      btn.addEventListener('click', function(){
+        var c = !sec.classList.contains('collapsed');
+        setState(c);
+        try { localStorage.setItem(key, c ? '1' : '0'); } catch(e){}
+      });
+    }
+    main.appendChild(sec);
+
+    var a = document.createElement('a');
+    a.href = '#' + s.id;
+    a.style.setProperty('--accent', 'var(--' + (s.accent || 'blue') + ')');
+    a.textContent = s.title.replace(/( Site)? Links$/,'').replace(/^Supplier$/,'Suppliers');
+    nav.appendChild(a);
+  });
+  document.getElementById('total').innerHTML = '<b>' + total + '</b> links across <b>' + data.sections.length + '</b> sections';
+
+  /* ---------- active tab follows scroll ---------- */
+  var tabs = [].slice.call(nav.querySelectorAll('a'));
+  function setActive(id){ tabs.forEach(function(t){ t.classList.toggle('active', t.getAttribute('href') === '#' + id); }); }
+  setActive(data.sections[0].id);
+  var lockUntil = 0;
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      setActive(t.getAttribute('href').slice(1));
+      lockUntil = Date.now() + 1200;            // let the smooth scroll finish without overriding the clicked tab
+    });
+  });
+  ['wheel','touchmove','keydown'].forEach(function(ev){
+    window.addEventListener(ev, function(e){ if (ev !== 'keydown' || /Arrow|Page|Home|End|Space/.test(e.key || e.code)) lockUntil = 0; }, {passive:true});
+  });
+  function onScroll(){
+    if (Date.now() < lockUntil) return;
+    var cur = data.sections[0].id, y = 100;
+    main.querySelectorAll('section:not(.hidden)').forEach(function(sec){ if (sec.getBoundingClientRect().top - y <= 0) cur = sec.id; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4){
+      var vis = main.querySelectorAll('section:not(.hidden)'); if (vis.length) cur = vis[vis.length-1].id;
+    }
+    setActive(cur);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---------- search ---------- */
+  function updateCounts(){
+    var any = false;
+    main.querySelectorAll('section').forEach(function(sec){
+      var vis = sec.querySelectorAll('li:not(.hidden)').length;
+      var all = sec.querySelectorAll('li').length;
+      sec.querySelector('.count').textContent = vis === all ? all + ' links' : vis + ' of ' + all;
+      sec.classList.toggle('hidden', vis === 0);
+      if (vis) any = true;
+    });
+    document.getElementById('empty').style.display = any ? 'none' : 'block';
+  }
+  var q = document.getElementById('q');
+  q.addEventListener('input', function(){
+    var term = q.value.trim().toLowerCase();
+    main.querySelectorAll('li').forEach(function(li){
+      li.classList.toggle('hidden', !!term && li.dataset.search.indexOf(term) === -1);
+    });
+    if (term) main.querySelectorAll('section.collapsed').forEach(function(s){
+      s.classList.remove('collapsed');
+      var b = s.querySelector('.toggle'); if (b) b.setAttribute('aria-expanded','true');
+    });
+    updateCounts(); onScroll();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === '/' && document.activeElement !== q){ e.preventDefault(); q.focus(); }
+    if (e.key === 'Escape' && document.activeElement === q){ q.value = ''; q.dispatchEvent(new Event('input')); }
+  });
+  updateCounts();
+})();
+</script>
+</body>
+</html>
